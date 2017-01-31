@@ -23,17 +23,15 @@ describe('Migration: 001_tag.js', function () {
         pattern: /[^=&#]+.js$/
       }
     })
-    umzug.pending().then(function (migrations) {
-      umzug.execute({
-        method: 'up',
-        migrations: [
-          '001_tag'
-        ]
-      }).then(function(migrated) {
-        done()
-      }).catch(function(err) {
-        console.warn(err)
-      })
+    umzug.execute({
+      method: 'up',
+      migrations: [
+        '001_tag'
+      ]
+    }).then(function(migrated) {
+      done()
+    }).catch(function(err) {
+      console.warn(err)
     })
   })
   it('should migrate the tags table', function(done) {

@@ -1,6 +1,6 @@
 module.exports  = {
   up (knex) {
-    return new Promise(function(resolve, reject) {
+    return new Promise((resolve, reject) => {
       knex.schema.createTable('tags', function(table) {
         table.increments()
         table.string('name').notNullable()
@@ -8,7 +8,7 @@ module.exports  = {
     })
   },
   down (knex) {
-    return new Promise(function(resolve, reject) {
+    return new Promise((resolve, reject) => {
       knex.schema.dropTableIfExists('tags').then(resolve).catch(reject)
     })
   }
